@@ -64,10 +64,6 @@ export function getAddChainParameters(chainId: number): AddEthereumChainParamete
 type ChainConfig = { [chainId: number]: BasicChainInformation | ExtendedChainInformation }
 
 export const MAINNET_CHAINS: ChainConfig = {
-  1: {
-    urls: ['https://cloudflare-eth.com'],
-    name: 'Ethereum',
-  },
   46: {
     urls: ['https://rpc.darwinia.network'],
     name: 'Darwinia',

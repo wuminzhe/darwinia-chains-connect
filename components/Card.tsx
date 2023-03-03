@@ -1,6 +1,5 @@
 import { Web3ReactHooks } from '@web3-react/core'
 import { MetaMask } from '@web3-react/metamask'
-import { Network } from '@web3-react/network'
 
 import { getName } from '../utils'
 import { Accounts } from './Accounts'

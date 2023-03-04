@@ -3,6 +3,7 @@ import type { MetaMask } from '@web3-react/metamask'
 import { useCallback, useEffect, useState } from 'react'
 
 import { CHAINS, getAddChainParameters } from '../chains'
+import { Select, Button } from '@chakra-ui/react'
 
 function ChainSelect({
   activeChainId,
@@ -14,25 +15,27 @@ function ChainSelect({
   chainIds: number[]
 }) {
   return (
-    <select
-      value={activeChainId}
+    <Select 
+      value={activeChainId} 
+      disabled={switchChain === undefined} 
       onChange={(event) => {
         switchChain(Number(event.target.value))
       }}
-      disabled={switchChain === undefined}
     >
       <option hidden disabled selected={activeChainId === undefined}>
-        Select chain
+        Select Chain
       </option>
       <option value={-1} selected={activeChainId === -1}>
         Default
       </option>
-      {chainIds.map((chainId) => (
-        <option key={chainId} value={chainId} selected={chainId === activeChainId}>
-          {CHAINS[chainId]?.name ?? chainId}
-        </option>
-      ))}
-    </select>
+      {
+        chainIds.map((chainId) => (
+          <option key={chainId} value={chainId} selected={chainId === activeChainId}>
+            {CHAINS[chainId]?.name ?? chainId}
+          </option>
+        ))
+      }
+    </Select>
   )
 }
 
@@ -100,9 +103,9 @@ export function ConnectWithSelect({
       <div style={{ marginBottom: '1rem' }} />
       {isActive ? (
         error ? (
-          <button onClick={() => switchChain(desiredChainId)}>Try again?</button>
+          <Button onClick={() => switchChain(desiredChainId)}>Try again?</Button>
         ) : (
-          <button
+          <Button
             onClick={() => {
               if (connector?.deactivate) {
                 void connector.deactivate()
@@ -113,17 +116,17 @@ export function ConnectWithSelect({
             }}
           >
             Disconnect
-          </button>
+          </Button>
         )
       ) : (
-        <button
+        <Button
           onClick={() =>
               switchChain(desiredChainId)
           }
           disabled={isActivating || !desiredChainId}
         >
           {error ? 'Try again?' : 'Connect'}
-        </button>
+        </Button>
       )}
     </div>
   )

@@ -2,6 +2,7 @@ import type { BigNumber } from '@ethersproject/bignumber'
 import { formatEther } from '@ethersproject/units'
 import type { Web3ReactHooks } from '@web3-react/core'
 import { useEffect, useState } from 'react'
+import {Box, Text, HStack } from '@chakra-ui/react'
 
 function useBalances(
   provider?: ReturnType<Web3ReactHooks['useProvider']>,
@@ -42,17 +43,27 @@ export function Accounts({
   if (accounts === undefined) return null
 
   return (
-    <div>
-      Accounts: <b>
-        {accounts.length === 0
-          ? 'None'
-          : accounts?.map((account, i) => (
-              <ul key={account} style={{ margin: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                {ENSNames?.[i] ?? account}
-                {balances?.[i] ? `(Ξ${formatEther(balances[i])})` : null}
-              </ul>
-            ))}
-      </b>
-    </div>
+    <HStack spacing='10px'>
+      <Box w='80px' bg=''>
+        <Text fontSize='md' align='right'>Account:</Text>
+      </Box>
+      <Box w='100%' bg=''>
+        <Text fontSize='sm' align='left' fontFamily={'Monaco, monospace'}>
+          {accounts.length === 0 ? 'None' : accounts[0]}
+        </Text>
+      </Box>
+    </HStack>
+    // <div>
+    //   Accounts: <b>
+    //     {accounts.length === 0
+    //       ? 'None'
+    //       : accounts?.map((account, i) => (
+    //           <ul key={account} style={{ margin: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+    //             {ENSNames?.[i] ?? account}
+    //             {balances?.[i] ? `(Ξ${formatEther(balances[i])})` : null}
+    //           </ul>
+    //         ))}
+    //   </b>
+    // </div>
   )
 }

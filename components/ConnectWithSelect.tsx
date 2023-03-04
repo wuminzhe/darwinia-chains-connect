@@ -100,15 +100,14 @@ export function ConnectWithSelect({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ marginBottom: '1rem' }} />
-        <Button
-          onClick={() =>
-              switchChain(initChainId)
-          }
-          disabled={isActivating || !desiredChainId}
-        >
-          {error ? 'Try again?' : 'Add To MetaMask'}
-        </Button>
+      <Button
+        onClick={() =>
+          switchChain(initChainId)
+        }
+        disabled={isActivating || !desiredChainId}
+      >
+        {error ? 'Try again?' : 'Add To MetaMask'}
+      </Button>
     </div>
   )
 }

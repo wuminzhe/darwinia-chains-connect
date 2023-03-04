@@ -49,18 +49,6 @@ export function Card({
         color: 'rgba(55, 53, 47, 1)',
       }}
     >
-      <HStack spacing='10px'>
-        <Box w='80px' bg=''>
-          <Text fontSize='md' align='right'>Status:</Text>
-        </Box>
-        <Box w='100%' bg=''>
-          <Status isActivating={isActivating} isActive={isActive} error={error} />
-        </Box>
-      </HStack>
-      <Chain chainId={activeChainId} />
-      <div style={{ marginBottom: '1rem' }}>
-        <Accounts accounts={accounts} provider={provider} ENSNames={ENSNames} />
-      </div>
       <ConnectWithSelect
         connector={connector}
         activeChainId={activeChainId}

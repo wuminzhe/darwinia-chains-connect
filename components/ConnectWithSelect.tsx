@@ -106,7 +106,13 @@ export function ConnectWithSelect({
         }
         disabled={isActivating || !desiredChainId}
       >
-        {error ? 'Try again?' : 'Add To MetaMask'}
+        {
+          activeChainId == initChainId ? (
+            'Connected'
+          ) : (
+            error ? 'Try again?' : 'Add To MetaMask' 
+          )
+        }
       </Button>
     </div>
   )

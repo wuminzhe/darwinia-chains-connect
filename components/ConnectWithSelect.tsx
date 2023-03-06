@@ -69,6 +69,8 @@ export function ConnectWithSelect({
   }
   const [desiredChainId, setDesiredChainId] = useState<number>(initChainId)
 
+  const chainName = CHAINS[initChainId]?.name;
+
   const switchChain = useCallback(
     async (desiredChainId: number) => {
       setDesiredChainId(desiredChainId)
@@ -108,7 +110,7 @@ export function ConnectWithSelect({
       >
         {
           activeChainId == initChainId ? (
-            'Connected'
+            `${chainName} Connected`
           ) : (
             error ? 'Try again?' : 'Add To MetaMask' 
           )

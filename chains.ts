@@ -8,13 +8,13 @@ const ETH: AddEthereumChainParameter['nativeCurrency'] = {
 
 const ORING: AddEthereumChainParameter['nativeCurrency'] = {
   name: 'Pangoro',
-  symbol: 'PANGORO',
+  symbol: 'ORING',
   decimals: 18,
 }
 
 const PRING: AddEthereumChainParameter['nativeCurrency'] = {
   name: 'Pangolin',
-  symbol: 'PANGOLIN',
+  symbol: 'PRING',
   decimals: 18,
 }
 
